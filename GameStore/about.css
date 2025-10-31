@@ -8,11 +8,13 @@
 }
 
 /* Heading */
-.content h1 {
-  text-align: center;
-  font-size: 2.5rem;
-  color: #c9d1d9;
-  margin-bottom: 20px;
+.content {
+  max-width: 750px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: #121212;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(247, 245, 245, 0.1);
 }
 
 /* Paragraphs */
@@ -22,3 +24,5 @@
   color: #c9d1d9;
   font-style: oblique;
 }
+
+
