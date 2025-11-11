@@ -1,4 +1,3 @@
-
 /* Genre Section */
 .genre-section {
   margin-top: 60px;
@@ -97,8 +96,74 @@
   .genre-card {
     flex: 0 0 calc(50% - 12px);
   }
-  
+
   .genre-header h2 {
     font-size: 1.5rem;
   }
+}
+
+/* Shopping Card */
+.shopingCard {
+  background-color: #121212;
+  padding: 1rem;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Image */
+.shopingCard img {
+  width: 100%; /* fill card width */
+  height: 300px; /* taller rectangle */
+  object-fit: cover; /* crop image nicely */
+  border-radius: 4px; /* optional rounded corners */
+  margin-bottom: 0.75rem; /* spacing below image */
+}
+
+/* Card body (text + button) */
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-grow: 1; /* fill remaining space */
+}
+
+/* Title and description */
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #c9d1d9;
+}
+
+.card-text {
+  font-size: 0.9rem;
+  color: #c9d1d9;
+  margin-bottom: 1rem;
+}
+
+/* Price and button container */
+.d-flex.justify-content-between {
+  align-items: center;
+}
+
+/* Price */
+.price {
+  font-weight: bold;
+  color: #c9d1d9;
+}
+
+/* Button unstyled but readable */
+.no-style {
+  all: unset;
+  cursor: pointer;
+  font: inherit;
+  color: #c9d1d9;
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.no-style:hover {
+  background-color: #1f1f1f; /* subtle hover */
 }
