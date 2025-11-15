@@ -70,5 +70,12 @@ ul li {
   color: #121212;
   font-style: oblique;
 }
+.H1SALE h1 {
+  color: #ffc107;
+}
 
-
+.H1SALE {
+  position: relative;
+  left: 500px;
+  color: #ffc107;
+}
