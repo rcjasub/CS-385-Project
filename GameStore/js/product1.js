@@ -92,6 +92,7 @@ const container = document.getElementById('product-container');
 products.forEach(product => {
     //create a div element for each product
     const col = document.createElement("div");
+    //bootstrap css
     col.className = "col-md-3 col-sm6";
 
     // Using a template literal to insert JS values dynamically into the HTML
