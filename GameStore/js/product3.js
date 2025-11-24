@@ -83,7 +83,7 @@ const products = [
         image: "images/disco.jpeg",
         alt: "Disco Elysium"
     }
-];
+]; 
 
 const container = document.getElementById('product-container');
 
