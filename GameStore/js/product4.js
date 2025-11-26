@@ -102,7 +102,7 @@ fightingGames.forEach(game => {
           <p class="price mb-0 me-3">$${game.price.toFixed(2)}</p>
           <button class="no-style">Add to Cart</button>
         </div>
-      </div>
+      </div>{}
     </div>
   `;
 
