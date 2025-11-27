@@ -1,0 +1,56 @@
+/*
+  Author: Jocsan Rodriguez
+  Date: November 26 2025
+  Class: Web Programming
+  Description: Styles for the main layout and components of the website
+*/
+
+.portfolio-img {
+  width: 30%; /* each image takes 30% of container width */
+  height: auto;
+  margin: 1%;
+}
+.custom-header {
+  max-width: 1500px;
+}
+
+h5 {
+  white-space: nowrap;
+}
+
+.div1 {
+  bottom: -16px;
+}
+
+.portfolio-img {
+  width: 100%; /* full width of .w3-content */
+  height: auto;
+  margin-top: 16px; /* spacing between images */
+  display: block;
+}
+
+.content-width {
+  max-width: 980px; /* match all sections */
+  width: 100%;
+  margin: 0 auto; /* center horizontally */
+}
+
+#contact {
+  max-width: 935px; /* same as .w3-content default */
+  width: 100%; /* fill container */
+  margin: 16px auto 0;
+  padding: 16px;
+  box-sizing: border-box;
+}
+.HeaderBox h1,
+.HeaderBox h3,
+.HeaderBox h5 {
+  color: black !important; /* override any W3.CSS text color */
+}
+
+/* Dim the header image */
+#headerImage {
+  filter: brightness(45%); /* dims the image to 50% brightness */
+  width: 100%;             /* ensures it stays full width */
+  height: auto;            /* keeps aspect ratio */
+}
