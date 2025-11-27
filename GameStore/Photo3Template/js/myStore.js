@@ -5,30 +5,34 @@ const images = {
       name: "Tekken 8",
       src: "myStoreImg/t8.jpeg",
       genre: "Fighting",
+      page: "../product4.html",
       description:
         "Head-to-head combat games featuring combos, special moves, and competitive play.",
       features: ["Combo System", "Tournament Mode", "Character Roster"],
     },
     {
-        name: "Final Fantasy 7",
+      name: "Final Fantasy 7",
       src: "myStoreImg/FF7.jpeg",
       genre: "RPG",
+      page: "../product3.html",
       description:
         "Classic RPG with turn-based combat and a rich narrative full of memorable characters.",
       features: ["Turn-Based Combat", "Cinematic Cutscenes", "Engaging Plot"],
     },
     {
-        name: "BattleField 1",
+      name: "BattleField 1",
       src: "myStoreImg/bf1.jpeg",
+      page: "../product1.html",
       genre: "Action",
       description:
         "Action shooter with fast-paced combat, missions, and multiplayer battles.",
       features: ["Multiplayer", "Vehicles & Weapons", "Realistic Battles"],
     },
     {
-        name: "Resident Evil 2",
+      name: "Resident Evil 2",
       src: "myStoreImg/re2.jpeg",
       genre: "Survival Horror",
+      page: "../product3.html",
       description:
         "Face terrifying enemies and solve puzzles while managing limited resources.",
       features: [
@@ -62,11 +66,13 @@ images.portfolio.forEach((item) => {
   nameText.className = "w3-text-dark-grey";
   container.appendChild(nameText);
 
-  // Genre
-  const genreText = document.createElement("p");
-  genreText.textContent = `Genre: ${item.genre}`;
-  genreText.className = "w3-text-blue";
-  container.appendChild(genreText);
+  // Genre as a clickable link
+  const genreLink = document.createElement("a");
+  genreLink.textContent = `Genre: ${item.genre}`;
+  genreLink.href = item.page; // link to the page outside folder
+  genreLink.className = "w3-text-blue";
+  genreLink.target = "_blank"; // optional: opens in new tab
+  container.appendChild(genreLink);
 
   // Description
   const descText = document.createElement("p");
