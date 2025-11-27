@@ -12,7 +12,7 @@ const images = {
       name: "Tekken 8",
       src: "myStoreImg/t8.jpeg",
       genre: "Fighting",
-      page: "../product4.html",
+      page: "https://cs-385-project.vercel.app/product4.html",
       description:
         "Head-to-head combat games featuring combos, special moves, and competitive play.",
       features: ["Combo System", "Tournament Mode", "Character Roster"],
@@ -21,7 +21,7 @@ const images = {
       name: "Final Fantasy 7",
       src: "myStoreImg/FF7.jpeg",
       genre: "RPG",
-      page: "../product3.html",
+      page: "https://cs-385-project.vercel.app/product3.html",
       description:
         "Classic RPG with turn-based combat and a rich narrative full of memorable characters.",
       features: ["Turn-Based Combat", "Cinematic Cutscenes", "Engaging Plot"],
@@ -29,7 +29,7 @@ const images = {
     {
       name: "BattleField 1",
       src: "myStoreImg/bf1.jpeg",
-      page: "../product1.html",
+      page: "https://cs-385-project.vercel.app/product1.html",
       genre: "Action",
       description:
         "Action shooter with fast-paced combat, missions, and multiplayer battles.",
@@ -39,7 +39,7 @@ const images = {
       name: "Resident Evil 2",
       src: "myStoreImg/re2.jpeg",
       genre: "Survival Horror",
-      page: "../product3.html",
+      page: "https://cs-385-project.vercel.app/product3.html",
       description:
         "Face terrifying enemies and solve puzzles while managing limited resources.",
       features: [
