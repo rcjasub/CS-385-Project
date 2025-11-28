@@ -101,11 +101,22 @@ products.forEach(product => {
                 </div>
                 <div class="d-flex justify-content-start align-items-center mt-2">
                     <p class="price mb-0 me-3">$${product.price.toFixed(2)}</p>
-                    <button class="no-style">Add to Cart</button>
+                    <button class="no-style add-to-cart-btn">Add to Cart</button>
                 </div>
             </div>
         </div>
     `;
 
     container.appendChild(col);
+
+    // find the button inside this card
+    const button = col.querySelector(".add-to-cart-btn");
+
+    // Add to cart on click (uses cart + updateCartCount from cart.js)
+    col.querySelector(".add-to-cart-btn").addEventListener("click", () => {
+        cart.push(product);
+        localStorage.setItem("cart", JSON.stringify(cart));
+        updateCartCount();
+        alert(`${product.title} added to cart!`);
+    });
 });
