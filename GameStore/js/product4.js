@@ -77,7 +77,7 @@ const products = [
         alt: "Soul Caliver VI"
     },
     {
-        title: "Dead OR Alive 6",
+        title: "DeadORAlive 6",
         description: "Competitive games where players battle opponents using combos, special moves, and strategic timing. Usually involves one-on-one combat in fast, skill-based matches.",
         price: 49.99,
         image: "images/DOR.jepg.webp",

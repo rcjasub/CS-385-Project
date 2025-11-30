@@ -1,11 +1,13 @@
 .cart-img {
-  width: 100%;       /* full width of card column */
-  height: 150px;     /* standard height for all cards */
-  object-fit: cover; /* crops to fill without distortion */
-  border-radius: 5px;
+  width: 100%; /* fill card width */
+  height: auto;
+  aspect-ratio: 3/4;
+  object-fit: cover; /* crop image nicely */
+  border-radius: 5px; /* optional rounded corners */
+  margin-bottom: 0.75rem; /* spacing below image */
 }
-
 
 .h5 {
-    color: #c9d1d9;
+  color: #c9d1d9;
 }
+

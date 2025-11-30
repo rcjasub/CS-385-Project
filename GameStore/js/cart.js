@@ -46,18 +46,18 @@ function loadCartGame() {
     let item = cart[i];
 
     const col = document.createElement("div");
-    col.className = "col-md-3 col-sm-6 mb-3";
 
+    col.className = "col-6 col-sm-5 col-md-6 col-lg-2 mb-3";
     col.innerHTML = `
-    <div class="shopingCard rounded h-100 d-flex flex-column">
-      <img src="${item.image}" alt="${item.alt}" class="cart-img mb-50"/>
-      <div class="card-body d-flex flex-column justify-content-between mt-2">
-        <h5 class="card-title h5">${item.title}</h5>
-        <p class="fw-bold mb-0">$${item.price.toFixed(2)}</p>
-        <button class="remove-btn btn btn-sm btn-danger mt-2">Remove</button>
-      </div>
+  <div class="cart">
+    <img src="${item.image}" alt="${item.alt}" class="cart-img mb-50"/>
+    <div class="card-body d-flex flex-column justify-content-between mt-2">
+      <h5 class="card-title h5">${item.title}</h5>
+      <p class="fw-bold mb-0">$${item.price.toFixed(2)}</p>
+      <button class="remove-btn btn btn-sm btn-danger mt-2">Remove</button>
     </div>
-  `;
+  </div>
+`;
 
     //remove game safetly
     const removeBtn = col.querySelector(".remove-btn");
