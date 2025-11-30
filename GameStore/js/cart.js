@@ -2,7 +2,7 @@
 let cart = JSON.parse(localStorage.getItem("cart")) || []; //conver to object/array
 
 // --------------------
-// UPDATE CART BADGE
+// UPDATE CART BADGE BASED OF ITEMS
 // --------------------
 function updateCartCount() {
   const cartBtn = document.getElementById("cart-btn");
@@ -14,6 +14,7 @@ function updateCartCount() {
 // --------------------
 function getsubTotal() {
   let subtotal = 0;
+  //loop through the object, collect the price
   for (let item of cart) subtotal += item.price;
   return subtotal;
 }
@@ -42,12 +43,19 @@ function loadCartGame() {
   const container = document.getElementById("cart-container");
   container.innerHTML = ""; // clear old items
 
+  // If cart is empty, show a friendly message
+  if (!cart || cart.length === 0) {
+    container.innerHTML = `<div class="col-12"><div class="cart-empty">Your cart is empty. <a href=\"product1.html\">Shop games</a></div></div>`;
+    return;
+  }
+
   for (let i = 0; i < cart.length; i++) {
     let item = cart[i];
 
     const col = document.createElement("div");
 
-    col.className = "col-6 col-sm-5 col-md-6 col-lg-2 mb-3";
+    // stack each cart item in its own full-width row within the right column
+    col.className = "col-12 mb-3";
     col.innerHTML = `
   <div class="cart">
     <img src="${item.image}" alt="${item.alt}" class="cart-img mb-50"/>
@@ -59,7 +67,7 @@ function loadCartGame() {
   </div>
 `;
 
-    //remove game safetly
+    //remove game safely
     const removeBtn = col.querySelector(".remove-btn");
     removeBtn.addEventListener("click", () => removeGame(i));
 
@@ -74,6 +82,7 @@ function loadCartGame() {
 function removeGame(index) {
   cart.splice(index, 1) // remove only that game
   localStorage.setItem("cart", JSON.stringify(cart)); //convers to json data 
+  //update the rest 
   loadCartGame();
   updateCartCount();
   calcTotals();
@@ -85,6 +94,7 @@ function removeGame(index) {
 function clearCart() {
   cart = []; // set it to 0
   localStorage.setItem("cart", JSON.stringify(cart));
+  //update the rest
   updateCartCount();
   calcTotals();
   loadCartGame();

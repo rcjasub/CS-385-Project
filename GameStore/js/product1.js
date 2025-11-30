@@ -122,7 +122,8 @@ products.forEach(product => {
 
     // Add to cart on click (uses cart + updateCartCount from cart.js)
     col.querySelector(".add-to-cart-btn").addEventListener("click", () => {
-
+        
+        //use the some method to return flase/true iterate 
         //check if cart has already has item in the cart 
         const exists = cart.some(item => item.title === product.title);
 
