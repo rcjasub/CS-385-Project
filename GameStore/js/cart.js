@@ -1,61 +1,98 @@
-// cart.js — load cart and update badge on any page
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+// Load cart from localStorage
+let cart = JSON.parse(localStorage.getItem("cart")) || []; //conver to object/array
 
-// Update cart badge count
+// --------------------
+// UPDATE CART BADGE
+// --------------------
 function updateCartCount() {
   const cartBtn = document.getElementById("cart-btn");
-  if (cartBtn) cartBtn.textContent = `${cart.length}`;
+  if (cartBtn) cartBtn.textContent = cart.length;
 }
 
+// --------------------
+// CALCULATE SUBTOTAL
+// --------------------
 function getsubTotal() {
-  if (!cart || cart.length === 0) return 0;
-
-  //loop through the array of object(to get the price)
-  let sTotal = 0;
-  for (let i = 0; i < cart.length; i++) {
-    if (cart[i]) {
-      sTotal += cart[i].price;
-    }
-  }
-  return sTotal;
+  let subtotal = 0;
+  for (let item of cart) subtotal += item.price;
+  return subtotal;
 }
 
+// --------------------
+// CALCULATE TOTALS
+// --------------------
 function calcTotals() {
-    console.log('=== calcTotals called ===');
-    console.log('Cart length:', cart.length);
-    console.log('Cart contents:', cart);
-    
-    let subtotal = getsubTotal();
-    console.log('Subtotal calculated:', subtotal);
-    
-    let taxes = 0.1;
-    let TotalTaxes = subtotal * taxes;
-    let FinalTotal = subtotal + TotalTaxes;
+  const subtotal = getsubTotal();
+  const taxes = subtotal * 0.1;
+  const total = subtotal + taxes;
 
-    console.log('Final values - Subtotal:', subtotal, 'Tax:', TotalTaxes, 'Total:', FinalTotal);
+  const subEl = document.getElementById("subTotal");
+  const taxEl = document.getElementById("taxes");
+  const totalEl = document.getElementById("finalTotal");
 
-    const subTotalElement = document.getElementById("subTotal");
-    const taxElement = document.getElementById("taxes");
-    const totalElement = document.getElementById("finalTotal");
-
-    //checking if they are valid
-    if (subTotalElement) subTotalElement.textContent = `${subtotal.toFixed(2)}`;
-    if (taxElement) taxElement.textContent = `${TotalTaxes.toFixed(2)}`;
-    if (totalElement) totalElement.textContent = `${FinalTotal.toFixed(2)}`;
+  if (subEl) subEl.textContent = subtotal.toFixed(2);
+  if (taxEl) taxEl.textContent = taxes.toFixed(2);
+  if (totalEl) totalEl.textContent = total.toFixed(2);
 }
 
+// --------------------
+// LOAD CART ITEMS
+// --------------------
+function loadCartGame() {
+  const container = document.getElementById("cart-container");
+  container.innerHTML = ""; // clear old items
+
+  for (let i = 0; i < cart.length; i++) {
+    let item = cart[i];
+
+    const col = document.createElement("div");
+    col.className = "col-md-3 col-sm-6 mb-3";
+
+    col.innerHTML = `
+    <div class="shopingCard rounded h-100 d-flex flex-column">
+      <img src="${item.image}" alt="${item.alt}" class="cart-img mb-50"/>
+      <div class="card-body d-flex flex-column justify-content-between mt-2">
+        <h5 class="card-title h5">${item.title}</h5>
+        <p class="fw-bold mb-0">$${item.price.toFixed(2)}</p>
+        <button class="remove-btn btn btn-sm btn-danger mt-2">Remove</button>
+      </div>
+    </div>
+  `;
+
+    // Attach event listener safely
+    const removeBtn = col.querySelector(".remove-btn");
+    removeBtn.addEventListener("click", () => removeGame(i));
+
+    container.appendChild(col);
+  }
+}
+
+// --------------------
+// REMOVE A GAME INDIVIDUALY
+// --------------------
+
+function removeGame(index) {
+  cart.splice(index, 1) // remove only that game
+  localStorage.setItem("cart", JSON.stringify(cart)); //convers to json data 
+  loadCartGame();
+  updateCartCount();
+  calcTotals();
+}
+
+// --------------------
+// CLEAR CART
+// --------------------
 function clearCart() {
-  cart = [];
+  cart = []; // set it to 0
   localStorage.setItem("cart", JSON.stringify(cart));
   updateCartCount();
   calcTotals();
-  let number = getsubTotal();
-  console.log(cart);
-  console.log("SubTotal: ", number);
-
+  loadCartGame();
 }
 
-//they will run automatically as soon as cart.js loads
+// --------------------
+// RUN ON PAGE LOAD
+// --------------------
 updateCartCount();
 calcTotals();
-
+loadCartGame();

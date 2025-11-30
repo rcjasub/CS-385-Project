@@ -1,0 +1,11 @@
+.cart-img {
+  width: 100%;       /* full width of card column */
+  height: 150px;     /* standard height for all cards */
+  object-fit: cover; /* crops to fill without distortion */
+  border-radius: 5px;
+}
+
+
+.h5 {
+    color: #c9d1d9;
+}
