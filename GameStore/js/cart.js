@@ -59,7 +59,7 @@ function loadCartGame() {
     </div>
   `;
 
-    // Attach event listener safely
+    //remove game safetly
     const removeBtn = col.querySelector(".remove-btn");
     removeBtn.addEventListener("click", () => removeGame(i));
 

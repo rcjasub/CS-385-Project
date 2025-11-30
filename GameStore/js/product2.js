@@ -120,9 +120,20 @@ products.forEach(product => {
 
     // Add to cart on click (uses cart + updateCartCount from cart.js)
     col.querySelector(".add-to-cart-btn").addEventListener("click", () => {
+
+        //check if cart has already has item in the cart 
+        const exists = cart.some(item => item.title === product.title);
+
+        if (exists) {
+            alert(`${product.title} is already in your cart.`);
+            return; // stop here, don't add another copy
+        }
+
+        //else 
         cart.push(product);
         localStorage.setItem("cart", JSON.stringify(cart));
         updateCartCount();
+        console.log(cart);
         alert(`${product.title} added to cart!`);
     });
 });
