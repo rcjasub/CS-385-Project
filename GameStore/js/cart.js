@@ -101,6 +101,16 @@ function clearCart() {
 }
 
 // --------------------
+// CHECKOUT
+// --------------------
+
+function checkout()
+{
+   clearCart();
+   alert("Thanking you for shopping at PlayDistrict!");
+}
+
+// --------------------
 // RUN ON PAGE LOAD
 // --------------------
 updateCartCount();
