@@ -1,4 +1,4 @@
-const fightingGames = [
+const products = [
     {
         title: "Tekken 8",
         description: "Competitive games where players battle opponents using combos, special moves, and strategic timing. Usually involves one-on-one combat in fast, skill-based matches.",
@@ -84,27 +84,28 @@ const fightingGames = [
         alt: "Dead OR Alive 6"
     }
 ];
-const container = document.getElementById("product-container");
 
-fightingGames.forEach(game => {
+const container = document.getElementById('product-container');
+
+products.forEach(product => {
     const col = document.createElement("div");
     col.className = "col-md-3 col-sm-6";
 
     col.innerHTML = `
-    <div class="shopingCard">
-      <img src="${game.image}" alt="${game.alt}" />
-      <div class="card-body d-flex flex-column justify-content-between">
-        <div>
-          <h5 class="card-title">${game.title}</h5>
-          <p class="card-text">${game.description}</p>
+        <div class="shopingCard">
+            <img src="${product.image}" alt="${product.alt}" />
+            <div class="card-body d-flex flex-column justify-content-between">
+                <div>
+                    <h5 class="card-title">${product.title}</h5>
+                    <p class="card-text">${product.description}</p>
+                </div>
+                <div class="d-flex justify-content-start align-items-center mt-2">
+                    <p class="price mb-0 me-3">$${product.price.toFixed(2)}</p>
+                    <button class="no-style add-to-cart-btn">Add to Cart</button>
+                </div>
+            </div>
         </div>
-        <div class="d-flex justify-content-start align-items-center mt-2">
-          <p class="price mb-0 me-3">$${game.price.toFixed(2)}</p>
-          <button class="no-style add-to-cart-btn">Add to Cart</button>
-        </div>
-      </div>{}
-    </div>
-  `;
+    `;
 
     container.appendChild(col);
 

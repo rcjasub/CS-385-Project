@@ -10,9 +10,10 @@ function updateCartCount() {
 function getsubTotal() {
   if (!cart || cart.length === 0) return 0;
 
+  //loop through the array of object(to get the price)
   let sTotal = 0;
   for (let i = 0; i < cart.length; i++) {
-    if (cart[i] && typeof cart[i].price === "number") {
+    if (cart[i]) {
       sTotal += cart[i].price;
     }
   }
@@ -37,6 +38,7 @@ function calcTotals() {
     const taxElement = document.getElementById("taxes");
     const totalElement = document.getElementById("finalTotal");
 
+    //checking if they are valid
     if (subTotalElement) subTotalElement.textContent = `${subtotal.toFixed(2)}`;
     if (taxElement) taxElement.textContent = `${TotalTaxes.toFixed(2)}`;
     if (totalElement) totalElement.textContent = `${FinalTotal.toFixed(2)}`;
@@ -53,6 +55,7 @@ function clearCart() {
 
 }
 
+//they will run automatically as soon as cart.js loads
 updateCartCount();
 calcTotals();
 
