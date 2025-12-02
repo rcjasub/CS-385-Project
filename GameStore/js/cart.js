@@ -1,3 +1,9 @@
+/* 
+  Author: Jocsan Rodriguez
+  Date: November 30 2025
+  Class: Web Programming
+*/
+
 // Load cart from localStorage
 let cart = JSON.parse(localStorage.getItem("cart")) || []; //conver to object/array
 

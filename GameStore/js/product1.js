@@ -1,3 +1,9 @@
+/* 
+  Author: Jocsan Rodriguez
+  Date: November 16 2025
+  Class: Web Programming
+*/
+
 const products = [
     {
         title: "Nier Automata",
